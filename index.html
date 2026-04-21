@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV-Go | Smart Rental</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero-section { background: #eefdf5; padding: 60px 0; }
+        .card:hover { transform: scale(1.05); transition: 0.3s; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">⚡ EV-Go Rentals</a>
+    </div>
+</nav>
+
+<section class="hero-section text-center">
+    <h1>Rent the Future</h1>
+    <p>Premium Electric Cars & Two-Wheelers in Pune</p>
+</section>
+
+<div class="container my-5">
+    <div class="row g-4" id="vehicle-list">
+        </div>
+</div>
+
+<script>
+    // Simple JSON representing your Java "Objects"
+    const vehicles = [
+        { name: "Tesla Model 3", type: "Car", price: "₹5000/day", img: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=400" },
+        { name: "Ather 450X", type: "Scooter", price: "₹800/day", img: "https://images.unsplash.com/photo-1595111162232-90141362e5b8?w=400" },
+        { name: "Tata Nexon EV", type: "Car", price: "₹3500/day", img: "https://images.unsplash.com/photo-1619767886558-efdc259c6e09?w=400" }
+    ];
+
+    const list = document.getElementById('vehicle-list');
+    vehicles.forEach(v => {
+        list.innerHTML += `
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img src="${v.img}" class="card-img-top" alt="vehicle">
+                    <div class="card-body">
+                        <h5 class="card-title">${v.name}</h5>
+                        <p class="badge bg-success">${v.type}</p>
+                        <p class="text-muted">${v.price}</p>
+                        <button class="btn btn-primary w-100" onclick="alert('Booking Logic Triggered!')">Rent Now</button>
+                    </div>
+                </div>
+            </div>`;
+    });
+</script>
+</body>
+</html>
